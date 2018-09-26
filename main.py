@@ -21,7 +21,11 @@ def ssidChecker(ssid):
         ssidAlert(ssid)
 
 def ssidAlert(wifi):
-    ctypes.windll.user32.MessageBoxW(0, "You are connected to " + wifi + ". To access internal sites, please connect to MULE.", "Suggestion", 0)
+    result = ctypes.windll.user32.MessageBoxW(0, "You are connected to " + wifi + ". To access internal sites, please connect to MULE. Click OK to connect to MULE", "Suggestion", 1)
+    if result == 1:
+        sp.call('netsh wlan connect name=Pantaleon')
+    else:
+        pass
 
 if __name__ == '__main__':
     getCurrentSSID()
