@@ -14,9 +14,6 @@ def getCurrentSSID():
         currentSSID = y.decode('utf-8')
     except ValueError:
         ctypes.windll.user32.MessageBoxW(0, "Oops!  Please connect to a WiFi network...", "Error!", 0)
-        print("Oops!  Please connect to a WiFi network...")
-
-
 
 def ssidChecker(ssid):
     global currentSSID, guestSSID
